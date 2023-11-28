@@ -37,6 +37,21 @@ You can also specify a custom source directory:
 ./heic_convert.sh /path/to/your/source_directory
 ```
 
+## Usage with Docker
+1. Navigate to the cloned repository directory.
+```bash
+cd heic_batch_convert
+```
+2. Build the Docker container using the provided Dockerfile.
+```bash
+docker build -t heic_batch_converter .
+```
+3. Once the container is built, you can run it with the following command:
+```bash
+docker run -v /path/to/your/heic/files:/images heic_batch_converter
+```
+Replace /path/to/your/heic/files with the actual path to the directory containing your HEIC files. This command mounts the directory into the container's /images directory.
+
 ## Notes
 1. The script will create a "heic" subdirectory in the source directory (if it doesn't exist) and move HEIC files there with unique names.
 2. HEIC files will be converted to JPEG format with spaces replacing underscores in their names and saved in the source directory.
@@ -66,11 +81,11 @@ my_photos/
 └── 2023-01-02_15.45.32.heic
 ```
 
-##License
+## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-###Acknowledgments
+## Acknowledgments
 
 Inspired by the need to simplify HEIC to JPEG conversion.
 
